@@ -9,6 +9,7 @@ Los datos utilizados en este análisis son accesibles a través del siguiente en
 Se importan y se filtran para incluir únicamente los datos de los países seleccionados para el análisis.
 
 **Herramientas utilizadas**
+
 · R: Se utiliza como lenguaje principal de programación para el análisis y la visualización de datos.
 
 · Librerías R:
