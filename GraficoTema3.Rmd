@@ -47,3 +47,41 @@ knit_hooks$set(inline = function(x) {
   }
 })
 ```
+
+# Configuración
+
+## Cargamos las librerías, las funciones y el fichero de datos
+
+```{r}
+# Cargamos las librerías
+library(ggplot2)
+library(tidyverse)
+library(readr)
+library(plotly)
+library(dplyr)
+library(knitr)
+
+# Importamos el fichero
+df <- read.csv("data/owid-covid-data.csv", header=TRUE)
+df$date <- as.Date(df$date, format = "%Y-%m-%d")
+```
+
+## Filtramos los datos
+
+```{r}
+paises <- c("Canada","France","Germany","Italy","Japan","Spain",
+            "United Kingdom","United States")
+
+#Filtramos
+df_filtrado <- df %>%
+  filter(location %in% paises)
+
+#Establecemos que color queremos que represente cada país
+colores <- c("Spain" =  "red","United States" = "darkorchid",
+             "Italy" = "turquoise4", "France" = "darkorange2",
+             "Germany" = "seagreen3", "Canada" = "chocolate4",
+             "Japan" = "steelblue4","United Kingdom" = "hotpink")
+
+```
+
+
