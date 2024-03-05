@@ -48,9 +48,9 @@ knit_hooks$set(inline = function(x) {
 })
 ```
 
-# Configuración
+# Configuración:
 
-## Cargamos las librerías, las funciones y el fichero de datos
+## Cargamos las librerías, las funciones y el fichero de datos:
 
 ```{r}
 # Cargamos las librerías
@@ -66,7 +66,7 @@ df <- read.csv("data/owid-covid-data.csv", header=TRUE)
 df$date <- as.Date(df$date, format = "%Y-%m-%d")
 ```
 
-## Filtramos los datos
+## Filtramos los datos:
 
 ```{r}
 paises <- c("Canada","France","Germany","Italy","Japan","Spain",
