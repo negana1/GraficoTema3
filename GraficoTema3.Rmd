@@ -1,21 +1,21 @@
 ---
 title: "Gráfico Tema 3"
 subtitle: Tratamiento de Datos. Grado en Ciencia de Datos- UV
-author: "Grupo Q"
+author: Grupo Q
 date:  "`r Sys.Date()`"
 params:
   lang: ES
 lang: "`r switch(params$lang, ES = 'es-ES', EN = 'en-US')`"
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: 3
+    number_sections: yes
   html_document:
     echo: yes
     number_sections: yes
     theme: lumen
     toc: yes
-  pdf_document:
-    toc: yes
-    toc_depth: 3
-    number_sections: yes
 ---
 
 # Introducción
@@ -24,7 +24,7 @@ El siguiente trabajo se centra en el análisis de la evolución de la pandemia d
 
 El objetivo principal es representar gráficamente la evolución de la pandemia a nivel mundial, con un enfoque particular en España. Para ello, se generará un gráfico interactivo que permita explorar los datos de manera dinámica.
 
-Para la elaboración de este trabajo, destacamos como herramienta principal la librería ggplot2 para la generación de gráficos interactivos. Además, se consultará y aplicará la documentación y recursos proporcionados por la comunidad de R, incluyendo el libro "ggplot2: Elegant Graphics for Data Analysis", así como otros recursos en línea que faciliten el proceso de visualización de datos y la creación de gráficos interactivos con ggplot.
+Para la elaboración de este trabajo, destacamos como herramienta principal la librería ggplot2 para la generación de gráficos interactivos. Además, se consultará y aplicará la documentación y recursos proporcionados por R, incluyendo el libro "ggplot2: Elegant Graphics for Data Analysis", así como otros recursos en línea que faciliten el proceso de visualización de datos y la creación de gráficos interactivos con ggplot.
 
 
 ```{r setup, cache = F, echo = F, message = F, warning = F, tidy = F}
@@ -32,6 +32,7 @@ Para la elaboración de este trabajo, destacamos como herramienta principal la l
 # CONFIGURACIÓN GENERAL
 library(knitr)
 options(width = 100)
+
 # Opciones generales chunks
 opts_chunk$set(echo=T,message = F, error = F, warning = F, comment = NA,
                fig.align = 'center', dpi = 100, tidy = F,
@@ -46,4 +47,22 @@ knit_hooks$set(inline = function(x) {
     paste(as.character(x), collapse = ', ')
   }
 })
+```
+
+# Configuración
+
+## Cargamos las librerías y el fichero de datos
+```{r}
+# Cargamos las librerías
+library(ggplot2)
+library(tidyverse)
+library(readr)
+library(plotly)
+library(dplyr)
+library(knitr)
+
+# Importamos el fichero
+df <- read.csv("data/owid-covid-data.csv", header=TRUE)
+df$date <- as.Date(df$date, format = "%Y-%m-%d")
+
 ```
