@@ -26,6 +26,9 @@ El objetivo principal es representar gráficamente la evolución de la pandemia 
 
 Para la elaboración de este trabajo, destacamos como herramienta principal la librería ggplot2 para la generación de gráficos interactivos. Además, se consultará y aplicará la documentación y recursos proporcionados por la comunidad de R, incluyendo el libro "ggplot2: Elegant Graphics for Data Analysis", así como otros recursos en línea que faciliten el proceso de visualización de datos y la creación de gráficos interactivos con ggplot.
 
+**Componentes grupo Q:**
+Hugo Frasquet García, Nerea Galera Navarro y Héctor Leal Herrera
+
 
 ```{r setup, cache = F, echo = F, message = F, warning = F, tidy = F}
 
