@@ -98,21 +98,27 @@ grafico <- ggplot(df_filtrado, aes(x = date,
   geom_line() + 
   guides(color = guide_legend(title = "Paises")) +
   scale_y_continuous(breaks = seq(0, 18, by = 2)) + 
-  scale_x_date(date_labels = "%b %d, %Y", 
+  scale_x_date(date_labels = "%B %d, %Y", 
                breaks = seq(min(df_filtrado$date), fecha, length.out = 5), 
                limits = c(min(df_filtrado$date), fecha)) +
   scale_color_manual(values=colores) +
   geom_line(data = filter(df_filtrado, location == "Spain"), size = 0.7) +
-  labs(title = "Daily new confirmed COVID-19 deaths per million people. Grupo Q", 
-       x = fecha) + 
-  theme(axis.title.y = element_blank())
+  labs(title = "Daily new confirmed COVID-19 deaths per million people. Grupo Q",
+       subtitle = "7-day rolling average",
+       x = fecha, 
+  caption = "Source: Johns Hopkins University CSSA COVID-19 Data") + 
+  theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
+  plot.caption = element_text(hjust = 0, color = "grey41"))
 
-grafico
+# Guardamos el gráfico
+ggsave("Grafico.pdf", plot = grafico)
 
 ```
 
 # Gráfico interactivo
 ```{r}
-ggplotly(grafico, width = 1000, height = 600)
+grafico2 <- ggplotly(grafico, width = 1000, height = 600)
+grafico2
+
 ```
 
