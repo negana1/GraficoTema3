@@ -7,15 +7,15 @@ params:
   lang: ES
 lang: "`r switch(params$lang, ES = 'es-ES', EN = 'en-US')`"
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: 3
+    number_sections: yes
   html_document:
     echo: yes
     number_sections: yes
     theme: lumen
     toc: yes
-  pdf_document:
-    toc: yes
-    toc_depth: 3
-    number_sections: yes
 ---
 
 # Introducción
@@ -106,7 +106,7 @@ grafico <- ggplot(df_filtrado, aes(x = date,
   labs(title = "Daily new confirmed COVID-19 deaths per million people. Grupo Q",
        subtitle = "7-day rolling average",
        x = fecha, 
-  caption = "Source: Johns Hopkins University CSSA COVID-19 Data") + 
+  caption = "Source: Johns Hopkins University CSSE COVID-19 Data") + 
   theme(axis.title.x = element_blank(), axis.title.y = element_blank(),
   plot.caption = element_text(hjust = 0, color = "grey41"))
 
